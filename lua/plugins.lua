@@ -38,6 +38,8 @@ return require('packer').startup(function(use)
  	  requires = { 'nvim-tree/nvim-web-devicons', opt = true }
    }
 
+ use 'tpope/vim-fugitive'
+
   -- Git Diff
   use { 'sindrets/diffview.nvim', requires = 'nvim-lua/plenary.nvim' }
 
