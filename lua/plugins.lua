@@ -52,13 +52,34 @@ return require('packer').startup(function(use)
   -- Syntax Highlighting
   use ('nvim-treesitter/nvim-treesitter', {run = ':TSUpdate'})
 
-  -- LSP Package Manager
+  -- LSP Zero 
   use {
-    "williamboman/mason.nvim",
-    "williamboman/mason-lspconfig.nvim",
-    "neovim/nvim-lspconfig",
-    run = ":MasonUpdate" -- :MasonUpdate updates registry contents
+    'VonHeikemen/lsp-zero.nvim',
+    branch = 'v2.x',
+    requires = {
+      -- LSP Support
+      {'neovim/nvim-lspconfig'},             -- Required
+      {                                      -- Optional
+        'williamboman/mason.nvim',
+        run = function()
+          pcall(vim.cmd, 'MasonUpdate')
+        end,
+      },
+      {'williamboman/mason-lspconfig.nvim'}, -- Optional
+
+      -- Autocompletion
+      {'hrsh7th/nvim-cmp'},     -- Required
+      {'hrsh7th/cmp-nvim-lsp'}, -- Required
+      {'L3MON4D3/LuaSnip'},     -- Required
+    }
   }
+
+  -- use {
+  --   "williamboman/mason.nvim",
+  --   "williamboman/mason-lspconfig.nvim",
+  --   "neovim/nvim-lspconfig",
+  --   run = ":MasonUpdate" -- :MasonUpdate updates registry contents
+  -- }
 
   -- use 'neovim/nvim-lspconfig'
 

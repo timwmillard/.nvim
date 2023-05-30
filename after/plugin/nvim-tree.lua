@@ -7,7 +7,6 @@ vim.g.loaded_netrwPlugin = 1
 -- set termguicolors to enable highlight groups
 vim.opt.termguicolors = true
 
--- OR setup with some options
 require("nvim-tree").setup({
   sort_by = "case_sensitive",
   renderer = {
@@ -17,6 +16,4 @@ require("nvim-tree").setup({
     dotfiles = true,
   },
 })
-
-vim.keymap.set("n", "<leader>nt", vim.cmd.NvimTreeToggle)
 

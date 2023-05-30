@@ -1,14 +1,33 @@
 require("plugins")
 
+vim.g.mapleader = " "
+
+-- Vim Set
 vim.o.number = true
 vim.o.relativenumber = true
 
-vim.g.mapleader = " "
+vim.o.tabstop = 4
+vim.o.softtabstop = 4
+vim.o.shiftwidth = 4
+vim.o.expandtab = true
+vim.o.smartindent = true
 
--- vim.o.termguicolors = true
+vim.o.wrap = false
 
--- Set highlight on search
--- vim.o.hlsearch = false
+vim.o.hlsearch = false
+vim.o.incsearch = true
+
+vim.o.termguicolors = true
+
+vim.o.scrolloff = 8
+
+vim.o.updatetime = 50
+
+vim.o.colorcolumn = "80"
+
+-- vim.keymap.set('n', '<leader>bb', vim.cmd('NvimTreeToggle'), {})
+-- nvim.keymap.set('n', '<leader>w', vim.api.nvim_set_current_win, {})
+
 
 -- vim.api.nvim_set_keymap('i', 'jk', '<ESC>', { noremap = true })
 
