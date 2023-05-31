@@ -25,6 +25,9 @@ vim.o.updatetime = 50
 
 vim.o.colorcolumn = "80"
 
+vim.o.swapfile = false
+vim.o.backup = false
+
 -- vim.keymap.set('n', '<leader>bb', vim.cmd('NvimTreeToggle'), {})
 -- nvim.keymap.set('n', '<leader>w', vim.api.nvim_set_current_win, {})
 
