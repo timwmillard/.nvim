@@ -1,6 +1,6 @@
 require("plugins")
 
-vim.g.mapleader = " "
+vim.g.mapleader = ","
 
 -- Vim Set
 vim.o.number = true
@@ -27,6 +27,9 @@ vim.o.colorcolumn = "80"
 
 vim.o.swapfile = false
 vim.o.backup = false
+
+
+-- vim.api.nvim_set_keymap("n", "<leader>rn", "<cmd>lua vim.lsp.buf.rename()<CR>", { noremap = true })
 
 -- vim.keymap.set('n', '<leader>bb', vim.cmd('NvimTreeToggle'), {})
 -- nvim.keymap.set('n', '<leader>w', vim.api.nvim_set_current_win, {})
