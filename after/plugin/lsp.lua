@@ -1,7 +1,7 @@
 local lsp = require('lsp-zero').preset('recommended')
 
 lsp.on_attach(function(client, bufnr)
-  lsp.default_keymaps({buffer = bufnr})
+    lsp.default_keymaps({ buffer = bufnr })
 end)
 
 local lspconfig = require('lspconfig')
@@ -14,12 +14,21 @@ lsp.setup()
 local cmp = require('cmp')
 
 cmp.setup({
-  mapping = {
-    ['<CR>'] = cmp.mapping.confirm({select = true}),
-    ['<C-k>'] = cmp.mapping.select_prev_item(cmp_select_opts),
-    ['<C-j>'] = cmp.mapping.select_next_item(cmp_select_opts),
-  }
+    mapping = {
+        ['<CR>'] = cmp.mapping.confirm({ select = true }),
+        ['<C-k>'] = cmp.mapping.select_prev_item(cmp_select_opts),
+        ['<C-j>'] = cmp.mapping.select_next_item(cmp_select_opts),
+    }
 })
 
-lspconfig.clangd.setup{
+lspconfig.clangd.setup {
 }
+
+-- show errors in window
+vim.keymap.set('n', '<leader>e', function()
+    vim.diagnostic.open_float(0, { scope = "line" })
+end, {})
+
+vim.keymap.set('n', '<leader>fd', function()
+    vim.lsp.buf.format()
+end, {})

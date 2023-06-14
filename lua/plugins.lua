@@ -74,16 +74,15 @@ return require('packer').startup(function(use)
     }
   }
 
-  -- use {
-  --   "williamboman/mason.nvim",
-  --   "williamboman/mason-lspconfig.nvim",
-  --   "neovim/nvim-lspconfig",
-  --   run = ":MasonUpdate" -- :MasonUpdate updates registry contents
-  -- }
+  -- postgres-nvim
+  use 'nvim-lua/plenary.nvim'
+  use 'MunifTanjim/nui.nvim'
+  use 'guysherman/pg.nvim'
+  -- use '~/dev/pg.nvim'
 
-  -- use 'neovim/nvim-lspconfig'
 
-  -- use 'fatih/vim-go'
+  use 'tpope/vim-dadbod'
+  use 'kristijanhusak/vim-dadbod-ui'
 
 end)
 
