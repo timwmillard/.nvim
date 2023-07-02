@@ -87,4 +87,7 @@ return require('packer').startup(function(use)
 
     use 'tpope/vim-dadbod'
     use 'kristijanhusak/vim-dadbod-ui'
+
+    use 'ThePrimeagen/harpoon'
+    use 'ThePrimeagen/vim-be-good'
 end)
