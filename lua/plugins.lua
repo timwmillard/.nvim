@@ -93,4 +93,7 @@ return require('packer').startup(function(use)
 
     use 'ThePrimeagen/harpoon'
     use 'ThePrimeagen/vim-be-good'
+
+    use 'tpope/vim-commentary'
+
 end)
