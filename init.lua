@@ -28,6 +28,7 @@ vim.o.colorcolumn = "80"
 vim.o.swapfile = false
 vim.o.backup = false
 
+vim.o.clipboard = "unnamedplus"
 
 -- vim.api.nvim_set_keymap("n", "<leader>rn", "<cmd>lua vim.lsp.buf.rename()<CR>", { noremap = true })
 
