@@ -18,6 +18,9 @@ return require('packer').startup(function(use)
         end
     }
 
+    -- Treesitter playground
+    use  'nvim-treesitter/playground'
+
     -- File Search Fuzzy Finder
     use {
         'nvim-telescope/telescope.nvim', tag = '0.1.1',
@@ -29,8 +32,6 @@ return require('packer').startup(function(use)
     use { "catppuccin/nvim", as = "catppuccin" }
     vim.cmd.colorscheme "catppuccin"
 
-    -- use({ 'rose-pine/neovim', as = 'rose-pine' })
-    -- vim.cmd('colorscheme rose-pine')
 
     -- Lualine
     use {
@@ -38,6 +39,7 @@ return require('packer').startup(function(use)
         requires = { 'nvim-tree/nvim-web-devicons', opt = true }
     }
 
+    -- Git tools and wrapper
     use 'tpope/vim-fugitive'
 
     -- Git Diff
@@ -94,6 +96,27 @@ return require('packer').startup(function(use)
     use 'ThePrimeagen/harpoon'
     use 'ThePrimeagen/vim-be-good'
 
+
+    -- Comment code lines
+    -- 'gc' to comment
+    -- 'gcc' to comment a line
     use 'tpope/vim-commentary'
+
+
+
+    use({
+        "jackMort/ChatGPT.nvim",
+        config = function()
+            require("chatgpt").setup({
+                api_key_cmd = "pass show openai/api_key"
+            })
+        end,
+        requires = {
+            "MunifTanjim/nui.nvim",
+            "nvim-lua/plenary.nvim",
+            "nvim-telescope/telescope.nvim"
+        }
+    })
+
 
 end)
