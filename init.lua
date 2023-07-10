@@ -23,12 +23,14 @@ vim.o.scrolloff = 8
 
 vim.o.updatetime = 50
 
-vim.o.colorcolumn = "80"
+vim.o.colorcolumn = "81"
 
 vim.o.swapfile = false
 vim.o.backup = false
 
 vim.o.clipboard = "unnamedplus"
+
+vim.o.textwidth = 80
 
 -- vim.api.nvim_set_keymap("n", "<leader>rn", "<cmd>lua vim.lsp.buf.rename()<CR>", { noremap = true })
 

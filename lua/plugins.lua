@@ -19,7 +19,7 @@ return require('packer').startup(function(use)
     }
 
     -- Treesitter playground
-    use  'nvim-treesitter/playground'
+    use 'nvim-treesitter/playground'
 
     -- File Search Fuzzy Finder
     use {
@@ -103,20 +103,32 @@ return require('packer').startup(function(use)
     use 'tpope/vim-commentary'
 
 
-
+    -- Go plugins
     use({
-        "jackMort/ChatGPT.nvim",
-        config = function()
-            require("chatgpt").setup({
-                api_key_cmd = "pass show openai/api_key"
-            })
-        end,
+        'ray-x/go.nvim',
         requires = {
-            "MunifTanjim/nui.nvim",
-            "nvim-lua/plenary.nvim",
-            "nvim-telescope/telescope.nvim"
+            'ray-x/guihua.lua', -- recommended if need floating window support
+            'neovim/nvim-lspconfig',
+            'nvim-treesitter/nvim-treesitter',
         }
     })
+    -- function signature hints
+    use 'ray-x/lsp_signature.nvim'
+
+    -- use({
+    --     "jackMort/ChatGPT.nvim",
+    --     config = function()
+    --         require("chatgpt").setup({
+    --             api_key_cmd = "pass show openai/api_key"
+    --         })
+    --     end,
+    --     requires = {
+    --         "MunifTanjim/nui.nvim",
+    --         "nvim-lua/plenary.nvim",
+    --         "nvim-telescope/telescope.nvim"
+    --     }
+    -- })
 
 
+    use '~/dev/uuid.nvim'
 end)
