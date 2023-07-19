@@ -90,6 +90,10 @@ return require('packer').startup(function(use)
     -- use '~/dev/pg.nvim'
 
 
+    -- Alternative plugin
+    -- https://vimawesome.com/plugin/pgsql
+    -- https://github.com/lifepillar/pgsql.vim
+
     use 'tpope/vim-dadbod'
     use 'kristijanhusak/vim-dadbod-ui'
 

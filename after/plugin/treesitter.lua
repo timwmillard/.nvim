@@ -32,7 +32,10 @@ require 'nvim-treesitter.configs'.setup {
         -- the name of the parser)
 
         -- list of language that will be disabled
-        disable = { "yaml", "sql" }, -- both are getting errors with treesitter
+        disable = {
+            -- "yaml",
+            "sql",
+        }, -- both are getting errors with treesitter
 
         -- Or use a function for more flexibility, e.g. to disable slow treesitter highlight for large files
         -- disable = function(lang, buf)
