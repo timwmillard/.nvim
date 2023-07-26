@@ -114,6 +114,11 @@ _G.packer_plugins = {
     path = "/Users/tim/.local/share/nvim/site/pack/packer/start/harpoon",
     url = "https://github.com/ThePrimeagen/harpoon"
   },
+  ["hex.nvim"] = {
+    loaded = true,
+    path = "/Users/tim/.local/share/nvim/site/pack/packer/start/hex.nvim",
+    url = "https://github.com/RaafatTurki/hex.nvim"
+  },
   ["lsp-zero.nvim"] = {
     loaded = true,
     path = "/Users/tim/.local/share/nvim/site/pack/packer/start/lsp-zero.nvim",

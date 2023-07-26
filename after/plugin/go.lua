@@ -28,4 +28,5 @@ vim.keymap.set('n', '<leader>gotf', ':GoTestFile<CR>') -- Test File
 vim.keymap.set('n', '<leader>gotp', ':GoTestPkg<CR>') -- Test Package
 vim.keymap.set('n', '<leader>gota', ':GoTest<CR>') -- Test All
 vim.keymap.set('n', '<leader>goie', ':GoIfErr<CR>')
+vim.keymap.set('n', '<leader>gor', ':GoRename<CR>')
 

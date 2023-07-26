@@ -133,6 +133,7 @@ return require('packer').startup(function(use)
     --     }
     -- })
 
+    use 'RaafatTurki/hex.nvim'
 
     use '~/dev/uuid.nvim'
 end)
