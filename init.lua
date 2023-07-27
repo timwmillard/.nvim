@@ -35,14 +35,3 @@ vim.o.textwidth = 78
 -- :noh no highlight
 vim.api.nvim_set_keymap("n", "<leader>h", "<cmd>noh<CR>", { noremap = true })
 
--- vim.api.nvim_set_keymap("n", "<leader>rn", "<cmd>lua vim.lsp.buf.rename()<CR>", { noremap = true })
-
--- vim.keymap.set('n', '<leader>bb', vim.cmd('NvimTreeToggle'), {})
--- nvim.keymap.set('n', '<leader>w', vim.api.nvim_set_current_win, {})
-
-
--- vim.api.nvim_set_keymap('i', 'jk', '<ESC>', { noremap = true })
-
--- Remap Enter key to insert a newline and stay in Normal mode
--- noremap <Enter> o<Esc>
-
