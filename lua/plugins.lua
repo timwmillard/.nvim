@@ -135,5 +135,7 @@ return require('packer').startup(function(use)
 
     use 'RaafatTurki/hex.nvim'
 
+   use 'f-person/git-blame.nvim'
+
     use '~/dev/uuid.nvim'
 end)
