@@ -133,9 +133,23 @@ return require('packer').startup(function(use)
     --     }
     -- })
 
+    -- Hex view for binary files
     use 'RaafatTurki/hex.nvim'
 
+    -- Show git blame
    use 'f-person/git-blame.nvim'
 
+    -- UUID generator
     use '~/dev/uuid.nvim'
+
+    -- Multi line cursor
+    -- Ctrl-N to select match words
+    -- Can use `*` then `cgn` then `.` to replace search words
+    -- use 'mg979/vim-visual-multi'
+
+
+    -- HTML snippets and shortcuts
+    -- https://raw.githubusercontent.com/mattn/emmet-vim/master/TUTORIAL
+    use 'mattn/emmet-vim'
+
 end)

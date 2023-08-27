@@ -9,7 +9,6 @@ local lspconfig = require('lspconfig')
 -- (Optional) Configure lua language server for neovim
 lspconfig.lua_ls.setup(lsp.nvim_lua_ls())
 
-lsp.setup()
 
 local cmp = require('cmp')
 
@@ -32,3 +31,22 @@ end, {})
 vim.keymap.set('n', '<leader>fd', function()
     vim.lsp.buf.format()
 end, {})
+
+
+vim.keymap.set('n', '<leader>rn', vim.lsp.buf.rename)
+
+
+-- Postgres LSP
+require('lspconfig.configs').postgres_lsp = {
+  default_config = {
+    name = 'postgres_lsp',
+    cmd = {'/Users/tim/postgres/postgres_lsp/target/release/postgres_lsp'},
+    filetypes = {'sql'},
+    single_file_support = true,
+    root_dir = lspconfig.util.root_pattern 'root-file.txt'
+  }
+}
+
+lsp.configure("postgres_lsp", {force_setup = true})
+
+lsp.setup()

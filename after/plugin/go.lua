@@ -30,3 +30,6 @@ vim.keymap.set('n', '<leader>gota', ':GoTest<CR>') -- Test All
 vim.keymap.set('n', '<leader>goie', ':GoIfErr<CR>')
 vim.keymap.set('n', '<leader>gor', ':GoRename<CR>')
 
+
+vim.keymap.set('n', '<leader>goe', 'oif err != nil {<CR>}<Esc>Oreturn err<Esc>b')
+

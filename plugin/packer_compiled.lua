@@ -94,6 +94,11 @@ _G.packer_plugins = {
     path = "/Users/tim/.local/share/nvim/site/pack/packer/start/diffview.nvim",
     url = "https://github.com/sindrets/diffview.nvim"
   },
+  ["emmet-vim"] = {
+    loaded = true,
+    path = "/Users/tim/.local/share/nvim/site/pack/packer/start/emmet-vim",
+    url = "https://github.com/mattn/emmet-vim"
+  },
   ["git-blame.nvim"] = {
     loaded = true,
     path = "/Users/tim/.local/share/nvim/site/pack/packer/start/git-blame.nvim",
