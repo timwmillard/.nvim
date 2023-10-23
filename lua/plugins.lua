@@ -152,4 +152,7 @@ return require('packer').startup(function(use)
     -- https://raw.githubusercontent.com/mattn/emmet-vim/master/TUTORIAL
     use 'mattn/emmet-vim'
 
+
+    use 'joerdav/templ.vim'
+
 end)
