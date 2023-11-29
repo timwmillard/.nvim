@@ -1,6 +1,6 @@
 require("plugins")
 
-vim.g.mapleader = ","
+vim.g.mapleader = " "
 
 -- Vim Set
 vim.o.number = true

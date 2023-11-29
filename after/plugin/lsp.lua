@@ -40,7 +40,7 @@ vim.keymap.set('n', '<leader>rn', vim.lsp.buf.rename)
 require('lspconfig.configs').postgres_lsp = {
   default_config = {
     name = 'postgres_lsp',
-    cmd = {'/Users/tim/postgres/postgres_lsp/target/release/postgres_lsp'},
+    cmd = {'postgres_lsp'},
     filetypes = {'sql'},
     single_file_support = true,
     root_dir = lspconfig.util.root_pattern 'root-file.txt'
