@@ -172,4 +172,30 @@ return require('packer').startup(function(use)
 
     use 'stevearc/oil.nvim'
 
+    use {
+        'sontungexpt/url-open',
+        config = function()
+            require('url-open').setup({})
+            local status_ok, url_open = pcall(require, "url-open")
+            if not status_ok then
+                return
+            end
+            url_open.setup ({})
+        end
+    }
+
+    use {
+      'pwntester/octo.nvim',
+      requires = {
+        'nvim-lua/plenary.nvim',
+        'nvim-telescope/telescope.nvim',
+        'nvim-tree/nvim-web-devicons',
+      },
+      config = function ()
+        require"octo".setup()
+      end
+    }
+
+    use "folke/zen-mode.nvim"
+
 end)

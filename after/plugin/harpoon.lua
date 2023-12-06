@@ -4,7 +4,7 @@ local term = require('harpoon.term')
 local tmux = require('harpoon.tmux')
 
 vim.keymap.set('n', '<leader>a', mark.add_file)
-vim.keymap.set('n', '<leader>hp', ui.toggle_quick_menu)
+vim.keymap.set('n', '<leader> ', ui.toggle_quick_menu)
 vim.keymap.set('n', '<C-k>', ui.nav_prev)
 vim.keymap.set('n', '<C-j>', ui.nav_next)
 
