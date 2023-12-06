@@ -27,6 +27,17 @@ require("url-open").setup({
     deep_pattern = true,
     -- a list of patterns to open url under cursor
     extra_patterns = {
+        -- Go imports
+        {
+            pattern = '["]([^%s]*)["]',
+            prefix = "https://",
+            suffix = "",
+            file_patterns = { "%.go" },
+            excluded_file_patterns = nil,
+            extra_condition = nil,
+        },
+
+		-- so the url will be https://www.npmjs.com/package/[pattern_found]
         -- {
         -- 	  pattern = '["]([^%s]*)["]:%s*"[^"]*%d[%d%.]*"',
         -- 	  prefix = "https://www.npmjs.com/package/",
