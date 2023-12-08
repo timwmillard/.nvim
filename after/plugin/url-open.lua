@@ -29,7 +29,7 @@ require("url-open").setup({
     extra_patterns = {
         -- Go imports
         {
-            pattern = '["]([^%s]*)["]',
+            pattern = '["]([^%s]+)["]$',
             prefix = "https://",
             suffix = "",
             file_patterns = { "%.go" },

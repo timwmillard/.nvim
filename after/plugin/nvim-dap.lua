@@ -2,7 +2,10 @@ require("dapui").setup()
 
 require("nvim-dap-virtual-text").setup()
 
-require("dap").adapters.lldb = {
+local dap = require("dap")
+
+
+dap.adapters.lldb = {
     type = "executable",
     command = "/opt/homebrew/opt/llvm/bin/lldb-vscode",
     name = "lldb",
@@ -25,11 +28,23 @@ local lldb = {
     runInTerminal = false,
 }
 
-require('dap').configurations.c = {
+dap.configurations.c = {
     lldb -- different debuggers or more configurations can be used here
 }
 
-vim.keymap.set('n', '<leader>dc', function() require('dap').continue() end)
-vim.keymap.set('n', '<leader>dl', function() require('dap').run_last() end)
-vim.keymap.set('n', '<leader>db', function() require('dap').toggle_breakpoint() end)
+vim.fn.sign_define('DapBreakpoint',{ text ='🛑', texthl ='', linehl ='', numhl =''})
+vim.fn.sign_define('DapStopped',{ text ='▶️', texthl ='', linehl ='', numhl =''})
 
+vim.keymap.set('n', '<leader>db', function() dap.toggle_breakpoint() end)
+vim.keymap.set('n', '<leader>dB', function() dap.set_breakpoint() end)
+vim.keymap.set('n', '<leader>dc', function() dap.continue() end)
+vim.keymap.set('n', '<leader>di', function() dap.step_into() end)
+vim.keymap.set('n', '<leader>dd', function() dap.step_over() end)
+vim.keymap.set('n', '<leader>dl', function() dap.run_last() end)
+
+vim.keymap.set('n', '<leader>dv',
+    function ()
+        local widgets = require('dap.ui.widgets');
+        local sidebar = widgets.sidebar(widgets.scopes);
+        sidebar.open();
+    end)

@@ -79,9 +79,14 @@ return require('packer').startup(function(use)
     -- Undo Tree
     use 'mbbill/undotree'
 
-    -- nvim dap
+    -- nvim DAP (Debugging)
     use { 'rcarriga/nvim-dap-ui', requires = { 'mfussenegger/nvim-dap' } }
     use 'theHamsta/nvim-dap-virtual-text'
+
+    -- nvim Go DAP (Debugging)
+    -- requires delve
+    -- https://github.com/go-delve/delve
+    use { 'leoluz/nvim-dap-go', requires = { 'mfussenegger/nvim-dap' } }
 
     -- postgres-nvim
     use 'nvim-lua/plenary.nvim'
