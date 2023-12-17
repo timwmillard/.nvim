@@ -50,22 +50,3 @@ require("lspconfig").tailwindcss.setup({
   }
 })
 
-require('nvim-web-devicons').setup({
-   strict = true;
-   override = {
-      templ = {
-        icon = "",
-        color = "#428850",
-        cterm_color = "65",
-        name = "templ"
-      }
-    };
-    override_by_extension = {
-      [".templ"] = {
-        icon = "",
-        color = "#81e043",
-        name = "templ"
-      }
-     };
-})
-
