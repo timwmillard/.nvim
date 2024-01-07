@@ -124,20 +124,6 @@ return require('packer').startup(function(use)
     -- function signature hints
     use 'ray-x/lsp_signature.nvim'
 
-    -- use({
-    --     "jackMort/ChatGPT.nvim",
-    --     config = function()
-    --         require("chatgpt").setup({
-    --             api_key_cmd = "pass show openai/api_key"
-    --         })
-    --     end,
-    --     requires = {
-    --         "MunifTanjim/nui.nvim",
-    --         "nvim-lua/plenary.nvim",
-    --         "nvim-telescope/telescope.nvim"
-    --     }
-    -- })
-
     -- Hex view for binary files
     use 'RaafatTurki/hex.nvim'
 
@@ -187,18 +173,6 @@ return require('packer').startup(function(use)
             end
             url_open.setup ({})
         end
-    }
-
-    use {
-      'pwntester/octo.nvim',
-      requires = {
-        'nvim-lua/plenary.nvim',
-        'nvim-telescope/telescope.nvim',
-        'nvim-tree/nvim-web-devicons',
-      },
-      config = function ()
-        require"octo".setup()
-      end
     }
 
     use "folke/zen-mode.nvim"

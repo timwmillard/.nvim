@@ -34,7 +34,7 @@ require 'nvim-treesitter.configs'.setup {
         -- list of language that will be disabled
         disable = {
             -- "yaml",
-            "sql",
+            -- "sql",
         }, -- both are getting errors with treesitter
 
         -- Or use a function for more flexibility, e.g. to disable slow treesitter highlight for large files
