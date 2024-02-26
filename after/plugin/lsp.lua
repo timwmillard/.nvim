@@ -21,7 +21,11 @@ cmp.setup({
 })
 
 lspconfig.clangd.setup {
+    -- single_file_support = true,
 }
+
+vim.api.nvim_set_hl(0, '@lsp.type.comment.cpp', {})
+vim.api.nvim_set_hl(0, '@lsp.type.comment.c', {})
 
 -- show errors in window
 vim.keymap.set('n', '<leader>e', function()
@@ -50,3 +54,15 @@ require('lspconfig.configs').postgres_lsp = {
 lsp.configure("postgres_lsp", {force_setup = true})
 
 lsp.setup()
+
+
+vim.lsp.handlers["textDocument/publishDiagnostics"] =
+    vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, {
+        -- Disable underline, it's very annoying
+        underline = false,
+        -- Enable virtual text, override spacing to 4
+        virtual_text = {spacing = 4},
+        signs = true,
+        update_in_insert = false
+    })
+

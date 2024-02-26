@@ -23,7 +23,7 @@ vim.o.scrolloff = 8
 
 vim.o.updatetime = 50
 
-vim.o.colorcolumn = "80"
+vim.o.colorcolumn = "81"
 
 vim.o.swapfile = false
 vim.o.backup = false
@@ -35,3 +35,22 @@ vim.o.textwidth = 78
 -- :noh no highlight
 vim.api.nvim_set_keymap("n", "<leader>h", "<cmd>noh<CR>", { noremap = true })
 
+
+vim.g.c_syntax_for_h = 1
+
+vim.filetype.add({
+  -- Detect and assign filetype based on the extension of the filename
+  extension = {
+    env = "sh",
+  },
+  -- Detect and apply filetypes based on the entire filename
+  filename = {
+    [".env"] = "sh",
+    ["env"] = "sh",
+  },
+  -- Detect and apply filetypes based on certain patterns of the filenames
+  pattern = {
+    -- INFO: Match filenames like - ".env.example", ".env.local" and so on
+    ["%.env%.[%w_.-]+"] = "sh",
+  },
+})
