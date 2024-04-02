@@ -1,4 +1,6 @@
-require('go').setup()
+require('go').setup({
+    gofmt = 'gofmt',
+})
 
 -- auto gofmt and goimport on save
 local format_sync_grp = vim.api.nvim_create_augroup("GoImport", {})

@@ -2,6 +2,8 @@ local lsp = require('lsp-zero').preset('recommended')
 
 lsp.on_attach(function(client, bufnr)
     lsp.default_keymaps({ buffer = bufnr })
+
+    require('sonicpi').lsp_on_init(client, { server_dir = '/Applications/Sonic Pi.app/Contents/Resources/app/server' })
 end)
 
 local lspconfig = require('lspconfig')
@@ -17,7 +19,10 @@ cmp.setup({
         ['<CR>'] = cmp.mapping.confirm({ select = true }),
         ['<C-k>'] = cmp.mapping.select_prev_item(cmp_select_opts),
         ['<C-j>'] = cmp.mapping.select_next_item(cmp_select_opts),
-    }
+    },
+    sources = {
+        { name = 'sonicpi' }
+    },
 })
 
 lspconfig.clangd.setup {

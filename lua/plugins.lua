@@ -39,8 +39,24 @@ return require('packer').startup(function(use)
         requires = { 'nvim-tree/nvim-web-devicons', opt = true }
     }
 
+
+
+    use {
+      'NeogitOrg/neogit',
+      requires = {
+        'nvim-lua/plenary.nvim',         -- required
+        'sindrets/diffview.nvim',        -- optional - Diff integration
+
+        -- Only one of these is needed, not both.
+        'nvim-telescope/telescope.nvim', -- optional
+        'ibhagwan/fzf-lua',              -- optional
+      },
+      config = true
+    }
+
     -- Git tools and wrapper
     use 'tpope/vim-fugitive'
+    -- use 'tpope/vim-rhubarb'
 
     -- Git Diff
     use { 'sindrets/diffview.nvim', requires = 'nvim-lua/plenary.nvim' }
@@ -80,7 +96,7 @@ return require('packer').startup(function(use)
     use 'mbbill/undotree'
 
     -- nvim DAP (Debugging)
-    use { 'rcarriga/nvim-dap-ui', requires = { 'mfussenegger/nvim-dap' } }
+    use { 'rcarriga/nvim-dap-ui', requires = { 'mfussenegger/nvim-dap' , 'nvim-neotest/nvim-nio'} }
     use 'theHamsta/nvim-dap-virtual-text'
 
     -- nvim Go DAP (Debugging)
@@ -176,5 +192,16 @@ return require('packer').startup(function(use)
     }
 
     use "folke/zen-mode.nvim"
+
+    use({
+      'timwmillard/sonicpi.nvim',
+      config = function()
+        require('sonicpi').setup({})
+      end,
+      requires = {
+        'hrdh7th/nvim-cmp',
+        'kyazdani42/nvim-web-devicons'
+      }
+    })
 
 end)

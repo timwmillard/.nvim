@@ -35,6 +35,8 @@ vim.o.textwidth = 78
 -- :noh no highlight
 vim.api.nvim_set_keymap("n", "<leader>h", "<cmd>noh<CR>", { noremap = true })
 
+vim.api.nvim_set_keymap("n", "<tab>", "<cmd>bn<CR>", { noremap = true })
+vim.api.nvim_set_keymap("n", "<s-tab>", "<cmd>bp<CR>", { noremap = true })
 
 vim.g.c_syntax_for_h = 1
 
@@ -42,6 +44,7 @@ vim.filetype.add({
   -- Detect and assign filetype based on the extension of the filename
   extension = {
     env = "sh",
+    sonicpi = "sonicpi",
   },
   -- Detect and apply filetypes based on the entire filename
   filename = {
@@ -54,3 +57,6 @@ vim.filetype.add({
     ["%.env%.[%w_.-]+"] = "sh",
   },
 })
+
+vim.cmd("autocmd FileType sonicpi setlocal commentstring=#%s")
+
