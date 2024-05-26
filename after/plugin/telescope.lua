@@ -1,18 +1,19 @@
 
 local builtin = require('telescope.builtin')
-vim.keymap.set('n', '<leader>ff', builtin.find_files, {})
+vim.keymap.set('n', '<leader>p', builtin.find_files, {})
 
-vim.keymap.set('n', '<leader>fa', function()
+vim.keymap.set('n', '<leader>a', function()
     builtin.find_files({hidden = true, no_ignore=true})
 end)
 
 vim.keymap.set('n', '<leader>fw', builtin.grep_string, {})
+vim.keymap.set('n', '<leader>ff', function()
+    builtin.grep_string({ search = vim.fn.input("Grep > ") })
+end, {})
 vim.keymap.set('n', '<leader>fg', builtin.live_grep, {})
-vim.keymap.set('n', '<leader>F', builtin.live_grep, {})
 vim.keymap.set('n', '<leader>fc', builtin.current_buffer_fuzzy_find, {})
 vim.keymap.set('n', '<leader>fb', builtin.buffers, {})
 vim.keymap.set('n', '<leader>fh', builtin.help_tags, {})
-vim.keymap.set('n', '<leader>gf', builtin.git_files, {})
 vim.keymap.set('n', '<leader>fx', builtin.treesitter, {})
 vim.keymap.set('n', '<leader>fm', builtin.marks, {})
 vim.keymap.set('n', '<leader>fj', builtin.jumplist, {})
@@ -37,13 +38,9 @@ vim.keymap.set('n', '<leader>gt', builtin.lsp_type_definitions, {})
 -- vim.keymap.set('n', '<leader>li', builtin.lsp_incoming_calls, {})
 -- vim.keymap.set('n', '<leader>lo', builtin.lsp_outgoing_calls, {})
 
-
+vim.keymap.set('n', '<leader>gf', builtin.git_files, {})
 vim.keymap.set('n', '<leader>gb', builtin.git_branches, {})
 vim.keymap.set('n', '<leader>gc', builtin.git_commits, {})
--- vim.keymap.set('n', '<leader>gs', builtin.git_status, {}) -- Still WIP
-
--- vim.keymap.set('n', '<leader>fa', function()
-	-- builtin.grep_string({ search = vim.fn.input("Grep > ") });
--- end) -- This is not working!!
+vim.keymap.set('n', '<leader>gs', builtin.git_status, {}) -- Still WIP
 
 

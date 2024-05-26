@@ -14,7 +14,6 @@ vim.o.smartindent = true
 
 vim.o.wrap = false
 
-vim.o.hlsearch = true
 vim.o.incsearch = true
 
 vim.o.termguicolors = true
@@ -33,10 +32,18 @@ vim.o.clipboard = "unnamedplus"
 vim.o.textwidth = 78
 
 -- :noh no highlight
-vim.api.nvim_set_keymap("n", "<leader>h", "<cmd>noh<CR>", { noremap = true })
+vim.o.hlsearch = true
+vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
 
-vim.api.nvim_set_keymap("n", "<tab>", "<cmd>bn<CR>", { noremap = true })
-vim.api.nvim_set_keymap("n", "<s-tab>", "<cmd>bp<CR>", { noremap = true })
+-- Diagnostic keymaps
+vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, { desc = 'Go to previous [D]iagnostic message' })
+vim.keymap.set('n', ']d', vim.diagnostic.goto_next, { desc = 'Go to next [D]iagnostic message' })
+-- vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float, { desc = 'Show diagnostic [E]rror messages' })
+-- vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostic [Q]uickfix list' })
+
+vim.api.nvim_set_keymap("n", "<C-k>", "<cmd>bn<CR>", { noremap = true })
+vim.api.nvim_set_keymap("n", "<C-j>", "<cmd>bp<CR>", { noremap = true })
+vim.api.nvim_set_keymap("n", "<C-c>", "<cmd>bd<CR><cmd>bp<CR>", { noremap = true })
 
 vim.g.c_syntax_for_h = 1
 
@@ -45,6 +52,7 @@ vim.filetype.add({
   extension = {
     env = "sh",
     sonicpi = "sonicpi",
+    pgc = "c",
   },
   -- Detect and apply filetypes based on the entire filename
   filename = {

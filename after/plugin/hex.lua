@@ -1,1 +1,2 @@
-require 'hex'.setup()
+require('hex').setup()
+

@@ -13,9 +13,6 @@ return require('packer').startup(function(use)
         requires = {
             'nvim-tree/nvim-web-devicons', -- optional
         },
-        config = function()
-            require("nvim-tree").setup {}
-        end
     }
 
     -- Treesitter playground
@@ -29,8 +26,8 @@ return require('packer').startup(function(use)
     }
 
     -- Themes
-    use { "catppuccin/nvim", as = "catppuccin" }
-    vim.cmd.colorscheme "catppuccin"
+    use { 'catppuccin/nvim', as = 'catppuccin' }
+    vim.cmd.colorscheme 'catppuccin'
 
 
     -- Lualine
@@ -40,23 +37,9 @@ return require('packer').startup(function(use)
     }
 
 
-
-    use {
-      'NeogitOrg/neogit',
-      requires = {
-        'nvim-lua/plenary.nvim',         -- required
-        'sindrets/diffview.nvim',        -- optional - Diff integration
-
-        -- Only one of these is needed, not both.
-        'nvim-telescope/telescope.nvim', -- optional
-        'ibhagwan/fzf-lua',              -- optional
-      },
-      config = true
-    }
-
     -- Git tools and wrapper
     use 'tpope/vim-fugitive'
-    -- use 'tpope/vim-rhubarb'
+    use 'tpope/vim-rhubarb'
 
     -- Git Diff
     use { 'sindrets/diffview.nvim', requires = 'nvim-lua/plenary.nvim' }
@@ -168,9 +151,9 @@ return require('packer').startup(function(use)
 
     -- use {
     --     'rest-nvim/rest.nvim',
-    --     requires = { "nvim-lua/plenary.nvim" },
+    --     requires = { 'nvim-lua/plenary.nvim' },
     --     config = function()
-    --         require("rest-nvim").setup({})
+    --         require('rest-nvim').setup({})
     --     end,
     -- }
 
@@ -183,7 +166,7 @@ return require('packer').startup(function(use)
         'sontungexpt/url-open',
         config = function()
             require('url-open').setup({})
-            local status_ok, url_open = pcall(require, "url-open")
+            local status_ok, url_open = pcall(require, 'url-open')
             if not status_ok then
                 return
             end
@@ -191,17 +174,20 @@ return require('packer').startup(function(use)
         end
     }
 
-    use "folke/zen-mode.nvim"
+    use 'folke/zen-mode.nvim'
 
     use({
-      'timwmillard/sonicpi.nvim',
+      'magicmonty/sonicpi.nvim',
       config = function()
         require('sonicpi').setup({})
       end,
       requires = {
-        'hrdh7th/nvim-cmp',
+        'hrsh7th/nvim-cmp',
         'kyazdani42/nvim-web-devicons'
       }
     })
 
+    use 'lucidph3nx/nvim-sops'
+
 end)
+
