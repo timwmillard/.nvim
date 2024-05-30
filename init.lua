@@ -1,4 +1,4 @@
-require("plugins")
+-- require("plugins")
 
 vim.g.mapleader = " "
 
@@ -67,4 +67,6 @@ vim.filetype.add({
 })
 
 vim.cmd("autocmd FileType sonicpi setlocal commentstring=#%s")
+
+require("lazy_init")
 
