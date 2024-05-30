@@ -35,6 +35,14 @@ return {
 
         vim.keymap.set('n', '<leader><tab>', ':NvimTreeToggle<CR>')
 
+        require("nvim-web-devicons").set_icon {
+            templ = {
+                icon = "",
+                color = "#e44d26",
+                cterm_color = "196",
+                name = "Templ"
+            }
+        }
     end
 
 }
