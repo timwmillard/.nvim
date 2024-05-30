@@ -23,6 +23,11 @@ return {
         -- HTML snippets and shortcuts
         -- https://raw.githubusercontent.com/mattn/emmet-vim/master/TUTORIAL
         'mattn/emmet-vim'
+    },
+    {
+        -- Hex view for binary files
+        'RaafatTurki/hex.nvim',
+        config = function() require('hex').setup() end
     }
 }
 

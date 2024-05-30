@@ -2,7 +2,7 @@ return {
     'magicmonty/sonicpi.nvim',
     dependencies  = {
         'hrsh7th/nvim-cmp',
-        'kyazdani42/nvim-web-devicons'
+        'nvim-tree/nvim-web-devicons'
     },
     config = function()
         local default_mapping_opts = { noremap = true, silent = true, buffer = 0 }
