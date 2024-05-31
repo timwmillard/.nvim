@@ -12,10 +12,10 @@ return {
         end)
 
         vim.keymap.set('n', '<leader>fw', builtin.grep_string, {})
-        vim.keymap.set('n', '<leader>ff', function()
+        vim.keymap.set('n', '<leader>fg', function()
             builtin.grep_string({ search = vim.fn.input("Grep > ") })
         end, {})
-        vim.keymap.set('n', '<leader>fg', builtin.live_grep, {})
+        vim.keymap.set('n', '<leader>ff', builtin.live_grep, {})
         vim.keymap.set('n', '<leader>fc', builtin.current_buffer_fuzzy_find, {})
         vim.keymap.set('n', '<leader>fb', builtin.buffers, {})
         vim.keymap.set('n', '<leader>fh', builtin.help_tags, {})
