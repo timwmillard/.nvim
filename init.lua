@@ -1,6 +1,7 @@
 -- require("plugins")
 
 vim.g.mapleader = " "
+vim.g.maplocalleader = "\\" -- Same for `maplocalleader`
 
 -- Vim Set
 vim.o.number = true
