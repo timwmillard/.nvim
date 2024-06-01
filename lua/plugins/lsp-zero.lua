@@ -80,6 +80,7 @@ return {
                     ['<CR>'] = cmp.mapping.confirm({ select = true }),
                     ['<C-k>'] = cmp.mapping.select_prev_item({}),
                     ['<C-j>'] = cmp.mapping.select_next_item({}),
+                    ['<Esc>'] = cmp.mapping.abort({}),
                 },
             })
 
