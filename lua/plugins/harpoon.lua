@@ -18,7 +18,7 @@ return {
         vim.keymap.set('n', '<leader>tm', function() tmux.gotoTerminal(1) end)
 
         require("telescope").load_extension('harpoon')
-        vim.keymap.set('n', '<leader>fh', ':Telescope harpoon marks<CR>')
+        vim.keymap.set('n', '<leader>fm', ':Telescope harpoon marks<CR>')
     end
 }
 
