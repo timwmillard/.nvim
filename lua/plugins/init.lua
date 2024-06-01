@@ -1,8 +1,5 @@
-
 return {
-    -- "folke/which-key.nvim",
-    -- { "folke/neoconf.nvim", cmd = "Neoconf" },
-    -- "folke/neodev.nvim",
+    -- { "folke/which-key.nvim" },
     {
         -- Undo Tree
         'mbbill/undotree',
@@ -30,4 +27,3 @@ return {
         config = function() require('hex').setup() end
     }
 }
-

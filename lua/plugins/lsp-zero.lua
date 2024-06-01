@@ -93,7 +93,6 @@ return {
                     signs = true,
                     update_in_insert = false
                 })
-
         end -- function config
     },
 }

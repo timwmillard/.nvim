@@ -21,4 +21,3 @@ return {
         vim.keymap.set('n', '<leader>fm', ':Telescope harpoon marks<CR>')
     end
 }
-

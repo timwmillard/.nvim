@@ -1,5 +1,5 @@
 -- Vim REST Console (VRC)
-return {    
+return {
     'diepm/vim-rest-console',
     config = function()
         vim.g.vrc_output_buffer_name = '_OUTPUT.json'
@@ -8,4 +8,3 @@ return {
         }
     end
 }
-

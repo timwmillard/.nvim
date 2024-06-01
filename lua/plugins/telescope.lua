@@ -1,6 +1,7 @@
 -- File Search Fuzzy Finder
 return {
-    'nvim-telescope/telescope.nvim', tag = '0.1.6',
+    'nvim-telescope/telescope.nvim',
+    tag = '0.1.6',
     dependencies = { 'nvim-lua/plenary.nvim' },
 
     config = function()
@@ -8,7 +9,7 @@ return {
         vim.keymap.set('n', '<leader>p', builtin.find_files, {})
 
         vim.keymap.set('n', '<leader>a', function()
-            builtin.find_files({hidden = true, no_ignore=true})
+            builtin.find_files({ hidden = true, no_ignore = true })
         end)
 
         vim.keymap.set('n', '<leader>fw', builtin.grep_string, {})

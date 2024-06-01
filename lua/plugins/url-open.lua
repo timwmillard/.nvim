@@ -16,14 +16,14 @@ return {
                     enabled = false,
                     fg = "#21d5ff", -- "text" or "#rrggbb"
                     -- fg = "text", -- text will set underline same color with text
-                    bg = nil, -- nil or "#rrggbb"
+                    bg = nil,       -- nil or "#rrggbb"
                     underline = true,
                 },
                 cursor_move = {
                     enabled = true,
                     fg = "#199eff", -- "text" or "#rrggbb"
                     -- fg = "text", -- text will set underline same color with text
-                    bg = nil, -- nil or "#rrggbb"
+                    bg = nil,       -- nil or "#rrggbb"
                     underline = true,
                 },
             },
@@ -72,7 +72,7 @@ return {
         if not status_ok then
             return
         end
-        url_open.setup ({})
+        url_open.setup({})
 
         vim.keymap.set("n", "<leader>u", "<esc>:URLOpenUnderCursor<cr>")
     end
