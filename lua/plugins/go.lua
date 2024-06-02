@@ -18,6 +18,16 @@ return {
             end,
             group = format_sync_grp,
         })
+
+        vim.keymap.set('n', '<leader>gofs', ':GoFillStruct<CR>')
+        vim.keymap.set('n', '<leader>goat', ':GoAddTag<CR>')
+        vim.keymap.set('n', '<leader>gort', ':GoRmTag<CR>')
+        vim.keymap.set('n', '<leader>gott', ':GoTestFunc<CR>') -- Test Function
+        vim.keymap.set('n', '<leader>gotf', ':GoTestFile<CR>') -- Test File
+        vim.keymap.set('n', '<leader>gotp', ':GoTestPkg<CR>')  -- Test Package
+        vim.keymap.set('n', '<leader>gota', ':GoTest<CR>')     -- Test All
+        vim.keymap.set('n', '<leader>gorn', ':GoRename<CR>')
+        vim.keymap.set('n', '<leader>goe', 'oif err != nil {<CR>}<Esc>Oreturn err<Esc>b')
     end,
     event = { "CmdlineEnter" },
     ft = { "go", 'gomod' },
