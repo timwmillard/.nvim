@@ -39,15 +39,9 @@ return {
 
             local lspconfig = require('lspconfig')
             -- (Optional) Configure lua language server for neovim
-            -- lspconfig.lua_ls.setup(lsp_zero.nvim_lua_ls())
-            lspconfig.lua_ls.setup({
+            local opts = {
                 settings = {
                     Lua = {
-                        runtime = {
-                            -- Tell the language server which version of Lua you're using
-                            -- (most likely LuaJIT in the case of Neovim)
-                            version = 'LuaJIT',
-                        },
                         diagnostics = {
                             -- Get the language server to recognize the `vim` global
                             globals = {
@@ -57,7 +51,9 @@ return {
                         },
                         workspace = {
                             -- Make the server aware of Neovim runtime files
-                            library = vim.api.nvim_get_runtime_file("", true),
+                            library = {
+                                vim.api.nvim_get_runtime_file("", true),
+                            }
                         },
                         -- Do not send telemetry data containing a randomized but unique identifier
                         telemetry = {
@@ -65,7 +61,8 @@ return {
                         },
                     },
                 },
-            })
+            }
+            lspconfig.lua_ls.setup(lsp_zero.nvim_lua_ls(opts))
 
             vim.keymap.set('n', '<leader>fd', function()
                 vim.lsp.buf.format()
@@ -84,7 +81,7 @@ return {
                 },
             })
 
-            local opts = {
+            opts = {
                 -- Disable underline, it's very annoying
                 underline = false,
                 -- Enable virtual text, override spacing to 4
@@ -95,7 +92,6 @@ return {
             vim.diagnostic.config(opts)
             vim.lsp.handlers["textDocument/publishDiagnostics"] =
                 vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, opts)
-
         end -- function config
     },
 }
