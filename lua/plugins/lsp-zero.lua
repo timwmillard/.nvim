@@ -77,22 +77,21 @@ return {
             local cmp = require('cmp')
             cmp.setup({
                 mapping = {
-                    ['<CR>'] = cmp.mapping.confirm({ select = true }),
+                    ['<Tab>'] = cmp.mapping.confirm({ select = true }),
                     ['<C-k>'] = cmp.mapping.select_prev_item({}),
                     ['<C-j>'] = cmp.mapping.select_next_item({}),
-                    ['<Esc>'] = cmp.mapping.abort({}),
+                    ['<S-Tab>'] = cmp.mapping.abort({}),
                 },
             })
 
-            vim.lsp.handlers["textDocument/publishDiagnostics"] =
-                vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, {
-                    -- Disable underline, it's very annoying
-                    underline = false,
-                    -- Enable virtual text, override spacing to 4
-                    virtual_text = { spacing = 4 },
-                    signs = true,
-                    update_in_insert = false
-                })
+            vim.diagnostic.config({
+                -- Disable underline, it's very annoying
+                underline = false,
+                -- Enable virtual text, override spacing to 4
+                virtual_text = { spacing = 4 },
+                signs = true,
+                update_in_insert = false,
+            })
         end -- function config
     },
 }
