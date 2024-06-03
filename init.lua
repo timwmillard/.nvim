@@ -1,6 +1,7 @@
-require("plugins")
+-- require("plugins")
 
 vim.g.mapleader = " "
+vim.g.maplocalleader = "\\" -- Same for `maplocalleader`
 
 -- Vim Set
 vim.o.number = true
@@ -31,15 +32,12 @@ vim.o.clipboard = "unnamedplus"
 
 vim.o.textwidth = 78
 
+-- exrc
+vim.o.exrc = true
+
 -- :noh no highlight
 vim.o.hlsearch = true
 vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
-
--- Diagnostic keymaps
-vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, { desc = 'Go to previous [D]iagnostic message' })
-vim.keymap.set('n', ']d', vim.diagnostic.goto_next, { desc = 'Go to next [D]iagnostic message' })
--- vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float, { desc = 'Show diagnostic [E]rror messages' })
--- vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostic [Q]uickfix list' })
 
 vim.api.nvim_set_keymap("n", "<C-k>", "<cmd>bn<CR>", { noremap = true })
 vim.api.nvim_set_keymap("n", "<C-j>", "<cmd>bp<CR>", { noremap = true })
@@ -67,4 +65,6 @@ vim.filetype.add({
 })
 
 vim.cmd("autocmd FileType sonicpi setlocal commentstring=#%s")
+
+require("lazy_init")
 
