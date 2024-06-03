@@ -16,6 +16,15 @@ return {
                 -- see :help lsp-zero-keybindings
                 -- to learn the available actions
                 lsp_zero.default_keymaps({ buffer = bufnr })
+                -- Need to update diagnostic after plugins load
+                vim.diagnostic.config({
+                    -- Disable underline, it's very annoying
+                    underline = false,
+                    -- Enable virtual text, override spacing to 4
+                    virtual_text = { spacing = 4 },
+                    signs = true,
+                    update_in_insert = false,
+                })
             end)
 
             require("mason").setup({
@@ -80,7 +89,6 @@ return {
                     ['<S-Tab>'] = cmp.mapping.abort({}),
                 },
             })
-
         end -- function config
     },
 }
