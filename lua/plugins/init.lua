@@ -1,5 +1,4 @@
 return {
-    -- { "folke/which-key.nvim" },
     {
         -- Undo Tree
         'mbbill/undotree',
@@ -25,5 +24,11 @@ return {
         -- Hex view for binary files
         'RaafatTurki/hex.nvim',
         config = function() require('hex').setup() end
+    },
+    {
+        'kwakzalver/duckytype.nvim',
+        config = function()
+            require('duckytype').setup({})
+        end
     }
 }
