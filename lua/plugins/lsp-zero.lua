@@ -12,20 +12,25 @@ return {
             local lsp_zero = require('lsp-zero')
             lsp_zero.extend_lspconfig()
 
+            local diagnostic_opts = {
+                -- Disable underline, it's very annoying
+                underline = false,
+                -- Enable virtual text, override spacing to 4
+                virtual_text = { spacing = 4 },
+                signs = true,
+                update_in_insert = false,
+            }
             lsp_zero.on_attach(function(_, bufnr)
                 -- see :help lsp-zero-keybindings
                 -- to learn the available actions
                 lsp_zero.default_keymaps({ buffer = bufnr })
                 -- Need to update diagnostic after plugins load
-                vim.diagnostic.config({
-                    -- Disable underline, it's very annoying
-                    underline = false,
-                    -- Enable virtual text, override spacing to 4
-                    virtual_text = { spacing = 4 },
-                    signs = true,
-                    update_in_insert = false,
-                })
+                vim.diagnostic.config(diagnostic_opts)
             end)
+            vim.keymap.set('n', '<leader>dd', function()
+                -- hack to remove underline
+                vim.diagnostic.config(diagnostic_opts)
+            end, {})
 
             require("mason").setup({
                 ui = {
