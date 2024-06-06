@@ -39,6 +39,15 @@ return {
                     excluded_file_patterns = nil,
                     extra_condition = nil,
                 },
+                -- go.mod go.sum
+                {
+                    pattern = '([^%s]+)v?[0-9]*',
+                    prefix = "https://",
+                    suffix = "",
+                    file_patterns = { "go.mod", "go.sum" },
+                    excluded_file_patterns = nil,
+                    extra_condition = nil,
+                },
 
                 -- so the url will be https://www.npmjs.com/package/[pattern_found]
                 -- {
