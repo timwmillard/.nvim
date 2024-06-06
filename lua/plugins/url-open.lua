@@ -41,7 +41,7 @@ return {
                 },
                 -- go.mod go.sum
                 {
-                    pattern = '([^%s]+)v?[0-9]*',
+                    pattern = '([^%s]+)',
                     prefix = "https://",
                     suffix = "",
                     file_patterns = { "go.mod", "go.sum" },
