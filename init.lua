@@ -46,25 +46,30 @@ vim.api.nvim_set_keymap("n", "<C-c>", "<cmd>bd<CR><cmd>bp<CR>", { noremap = true
 vim.g.c_syntax_for_h = 1
 
 vim.filetype.add({
-  -- Detect and assign filetype based on the extension of the filename
-  extension = {
-    env = "sh",
-    sonicpi = "sonicpi",
-    pgc = "c",
-  },
-  -- Detect and apply filetypes based on the entire filename
-  filename = {
-    [".env"] = "sh",
-    ["env"] = "sh",
-  },
-  -- Detect and apply filetypes based on certain patterns of the filenames
-  pattern = {
-    -- INFO: Match filenames like - ".env.example", ".env.local" and so on
-    ["%.env%.[%w_.-]+"] = "sh",
-  },
+    -- Detect and assign filetype based on the extension of the filename
+    extension = {
+        env = "sh",
+        sonicpi = "sonicpi",
+        pgc = "c",
+    },
+    -- Detect and apply filetypes based on the entire filename
+    filename = {
+        [".env"] = "sh",
+        ["env"] = "sh",
+    },
+    -- Detect and apply filetypes based on certain patterns of the filenames
+    pattern = {
+        -- INFO: Match filenames like - ".env.example", ".env.local" and so on
+        ["%.env%.[%w_.-]+"] = "sh",
+    },
 })
 
 vim.cmd("autocmd FileType sonicpi setlocal commentstring=#%s")
+
+-- nvim-tree setting
+-- disable netrw at the very start of your init.lua (strongly advised)
+vim.g.loaded_netrw = 1
+vim.g.loaded_netrwPlugin = 1
 
 require("lazy_init")
 
