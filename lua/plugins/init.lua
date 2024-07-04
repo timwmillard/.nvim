@@ -30,5 +30,8 @@ return {
         config = function()
             require('duckytype').setup({})
         end
-    }
+    },
+    {
+        "ledger/vim-ledger",
+    },
 }
