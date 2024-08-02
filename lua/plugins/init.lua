@@ -34,4 +34,7 @@ return {
     {
         "ledger/vim-ledger",
     },
+    {
+        "AndrewRadev/linediff.vim"
+    },
 }
