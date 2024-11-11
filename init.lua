@@ -35,12 +35,15 @@ vim.o.textwidth = 78
 -- exrc
 vim.o.exrc = true
 
+-- Used for "jaimecgomezz/here.term",
+vim.opt.hidden = true
+
 -- :noh no highlight
 vim.o.hlsearch = true
 vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
 
-vim.api.nvim_set_keymap("n", "<C-k>", "<cmd>bn<CR>", { noremap = true })
-vim.api.nvim_set_keymap("n", "<C-j>", "<cmd>bp<CR>", { noremap = true })
+vim.api.nvim_set_keymap("n", "<leader>k", "<cmd>bn<CR>", { noremap = true })
+vim.api.nvim_set_keymap("n", "<leader>j", "<cmd>bp<CR>", { noremap = true })
 vim.api.nvim_set_keymap("n", "<C-c>", "<cmd>bd<CR><cmd>bp<CR>", { noremap = true })
 
 vim.g.c_syntax_for_h = 1

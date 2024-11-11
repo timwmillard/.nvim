@@ -8,8 +8,8 @@ return {
 
         vim.keymap.set('n', '<leader> ', mark.add_file)
         vim.keymap.set('n', '<leader>l', ui.toggle_quick_menu)
-        vim.keymap.set('n', '<leader>k', ui.nav_prev)
-        vim.keymap.set('n', '<leader>j', ui.nav_next)
+        vim.keymap.set('n', '<C-k>', ui.nav_prev)
+        vim.keymap.set('n', '<C-j>', ui.nav_next)
 
         -- terminal
         vim.keymap.set('n', '<leader>tt', function() term.gotoTerminal(1) end)
