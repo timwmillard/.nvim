@@ -22,6 +22,9 @@ return {
                 update_root = false,
                 ignore_list = {},
             },
+            view = {
+                width = 50,
+            },
         })
 
         -- vim.keymap.set('n', '<leader>n', ':NvimTreeToggle<CR>')

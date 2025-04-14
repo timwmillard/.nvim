@@ -78,6 +78,13 @@ return {
             }
             lspconfig.lua_ls.setup(lsp_zero.nvim_lua_ls(opts))
 
+            lspconfig.postgres_lsp.setup{
+                cmd = { "postgrestools", "lsp-proxy" },
+                filetypes = { "sql", "psql" },
+                single_file_support = true,
+                root_dir = lspconfig.util.root_pattern "postgrestools.jsonc"
+            }
+
             vim.keymap.set('n', '<leader>fd', function()
                 vim.lsp.buf.format()
             end, {})

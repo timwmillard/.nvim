@@ -69,10 +69,24 @@ vim.filetype.add({
 
 vim.cmd("autocmd FileType sonicpi setlocal commentstring=#%s")
 
+-- use // for C comments
+vim.api.nvim_create_autocmd("FileType", {
+    pattern = "c",
+    callback = function()
+        vim.bo.commentstring = "// %s"
+    end
+})
+
 -- nvim-tree setting
 -- disable netrw at the very start of your init.lua (strongly advised)
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
 
 require("lazy_init")
+
+-- https://github.com/WhoIsSethDaniel/toggle-lsp-diagnostics.nvim
+-- Toggle Diagnostics
+vim.keymap.set('n', '<leader>td', function()
+  vim.diagnostic.enable(not vim.diagnostic.is_enabled())
+end, { silent = true, noremap = true })
 
