@@ -82,6 +82,8 @@ vim.api.nvim_create_autocmd("FileType", {
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
 
+require("secrets")
+
 require("lazy_init")
 
 -- https://github.com/WhoIsSethDaniel/toggle-lsp-diagnostics.nvim
