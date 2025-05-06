@@ -1,11 +1,11 @@
 return {
-    {
-        -- Undo Tree
-        'mbbill/undotree',
-        config = function()
-            vim.keymap.set('n', '<leader>U', vim.cmd.UndotreeToggle)
-        end
-    },
+    -- {
+    --     -- Undo Tree
+    --     'mbbill/undotree',
+    --     config = function()
+    --         vim.keymap.set('n', '<leader>U', vim.cmd.UndotreeToggle)
+    --     end
+    -- },
     {
         'ThePrimeagen/vim-be-good'
     },
@@ -15,39 +15,43 @@ return {
         dir = '~/dev/uuid.nvim',
         config = function() require('uuid') end
     },
-    {
-        -- HTML snippets and shortcuts
-        -- https://raw.githubusercontent.com/mattn/emmet-vim/master/TUTORIAL
-        'mattn/emmet-vim'
-    },
+    -- {
+    --     -- HTML snippets and shortcuts
+    --     -- https://raw.githubusercontent.com/mattn/emmet-vim/master/TUTORIAL
+    --     'mattn/emmet-vim'
+    -- },
     {
         -- Hex view for binary files
         'RaafatTurki/hex.nvim',
         config = function() require('hex').setup() end
     },
+    -- {
+    --     'kwakzalver/duckytype.nvim',
+    --     config = function()
+    --         require('duckytype').setup({})
+    --     end
+    -- },
+    -- {
+    --     "ledger/vim-ledger",
+    -- },
+    -- {
+    --     "AndrewRadev/linediff.vim"
+    -- },
+    -- {
+    --     "nvzone/minty",
+    --     dependencies = { "nvzone/volt", lazy = true },
+    --     cmd = { "Shades", "Huefy" },
+    -- },
+    -- {
+    --     "nvzone/showkeys",
+    --     cmd = "ShowkeysToggle",
+    --     opts = { position = "top-center" },
+    -- },
+    -- {
+    --     "nvzone/typr",
+    -- },
     {
-        'kwakzalver/duckytype.nvim',
-        config = function()
-            require('duckytype').setup({})
-        end
-    },
-    {
-        "ledger/vim-ledger",
-    },
-    {
-        "AndrewRadev/linediff.vim"
-    },
-    {
-        "nvzone/minty",
-        dependencies = { "nvzone/volt", lazy = true },
-        cmd = { "Shades", "Huefy" },
-    },
-    {
-        "nvzone/showkeys",
-        cmd = "ShowkeysToggle",
-        opts = { position = "top-center" },
-    },
-    {
-        "nvzone/typr",
+        "jesses-code-adventures/bruno.nvim",
+        opts = {}
     },
 }

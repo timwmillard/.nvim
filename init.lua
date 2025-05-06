@@ -46,6 +46,10 @@ vim.api.nvim_set_keymap("n", "<leader>k", "<cmd>bn<CR>", { noremap = true })
 vim.api.nvim_set_keymap("n", "<leader>j", "<cmd>bp<CR>", { noremap = true })
 vim.api.nvim_set_keymap("n", "<C-c>", "<cmd>bd<CR><cmd>bp<CR>", { noremap = true })
 
+-- quickfix navigation
+vim.keymap.set("n", "<M-C-j>", "<cmd>cnext<CR>")
+vim.keymap.set("n", "<M-C-k>", "<cmd>cprev<CR>")
+
 vim.g.c_syntax_for_h = 1
 
 vim.filetype.add({
@@ -83,6 +87,7 @@ vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
 
 require("secrets")
+require("lsp")
 
 require("lazy_init")
 
