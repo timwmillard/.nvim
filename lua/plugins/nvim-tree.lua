@@ -23,7 +23,7 @@ return {
                 ignore_list = {},
             },
             view = {
-                width = 50,
+                width = 30,
             },
         })
 
