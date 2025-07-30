@@ -9,15 +9,6 @@ local on_attach = function(client, bufnr)
     vim.keymap.set('n', '<leader>rn', vim.lsp.buf.rename, opts)
     vim.keymap.set('n', '<leader>ca', vim.lsp.buf.code_action, opts)
     vim.keymap.set("i", "<C-space>", vim.lsp.completion.get, opts)
-
-    if client and client.supports_method('textDocument/completion') then
-        vim.lsp.completion.enable(true, client.id, bufnr, {
-            autotrigger = true,
-            convert = function(item)
-                return { abbr = item.label:gsub("%b()", "") }
-            end,
-        })
-    end
 end
 
 -- https://blog.viktomas.com/graph/neovim-native-built-in-lsp-autocomplete/
@@ -55,7 +46,12 @@ vim.api.nvim_set_hl(0, '@lsp.type.comment.c', {})
 
 vim.diagnostic.config({ virtual_text = { current_line = true} })
 
-vim.lsp.config('elixirls', {
+-- Set default root markers for all clients
+vim.lsp.config('*', {
+  root_markers = { '.git' },
+})
+
+vim.lsp.config('elixir-ls', {
   cmd = { '/Users/tim/.local/share/nvim/mason/packages/elixir-ls/language_server.sh' },
   filetypes = { 'elixir', 'eelixir', 'heex', 'surface' },
   root_markers = { 'mix.exs', '.git' },
@@ -87,5 +83,5 @@ vim.lsp.enable({
     'clangd',
     'gopls',
     'lua_ls',
-    'elixirls',
+    'elixir-ls',
 })
