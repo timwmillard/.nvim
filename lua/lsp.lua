@@ -1,33 +1,26 @@
 local on_attach = function(client, bufnr)
+    local opts = { buffer = bufnr, noremap = true, silent = true }
+
+    vim.keymap.set('n', 'gd', vim.lsp.buf.definition, opts)
+    vim.keymap.set('n', 'K', vim.lsp.buf.hover, opts)
+    vim.keymap.set('n', '<leader>rn', vim.lsp.buf.rename, opts)
+    vim.keymap.set('n', '<leader>ca', vim.lsp.buf.code_action, opts)
+    vim.keymap.set("i", "<C-space>", vim.lsp.completion.get, opts)
+
+    if client and client.supports_method('textDocument/completion') then
+        vim.lsp.completion.enable(true, client.id, bufnr, {
+            autotrigger = true,
+            convert = function(item)
+                return { abbr = item.label:gsub("%b()", "") }
+            end,
+        })
+    end
 end
 
 -- https://blog.viktomas.com/graph/neovim-native-built-in-lsp-autocomplete/
 -- https://neovim.io/doc/user/options.html#'completeopt'
 vim.opt.completeopt = {'menuone', 'noselect', 'popup', 'fuzzy'}
 
-vim.api.nvim_create_autocmd('LspAttach', {
-    callback = function(ev)
-        local client = vim.lsp.get_client_by_id(ev.data.client_id)
-        if client ~= nil and client:supports_method('textDocument/completion') then
-            vim.lsp.completion.enable(true, client.id, ev.buf,
-                {
-                    autotrigger = true,
-                    convert = function(item)
-                        return { abbr = item.label:gsub("%b()", "") }
-                    end,
-                }
-            )
-        end
-
-        vim.keymap.set("i", "<C-space>", vim.lsp.completion.get,
-            { desc = "trigger autocompletion" }
-        )
-
-        vim.keymap.set('n', 'gd', vim.lsp.buf.definition,
-            { noremap=true, silent=true, buffer=ev.buf }
-        )
-    end
-})
 
 vim.api.nvim_set_hl(0, '@lsp.type.comment.cpp', {})
 vim.api.nvim_set_hl(0, '@lsp.type.comment.c', {})
@@ -46,14 +39,7 @@ vim.lsp.config('elixirls', {
       suggestSpecs = true,
     }
   },
-  on_attach = function(client, bufnr)
-    -- Your on_attach configuration here
-    local opts = { buffer = bufnr }
-    vim.keymap.set('n', 'gd', vim.lsp.buf.definition, opts)
-    vim.keymap.set('n', 'K', vim.lsp.buf.hover, opts)
-    vim.keymap.set('n', '<leader>rn', vim.lsp.buf.rename, opts)
-    vim.keymap.set('n', '<leader>ca', vim.lsp.buf.code_action, opts)
-  end,
+  on_attach = on_attach,
 })
 
 vim.lsp.config.clangd = {
@@ -65,6 +51,7 @@ vim.lsp.config.clangd = {
     },
     root_markers = { '.clangd', 'compile_commands.json' },
     filetypes = { 'c', 'cpp' },
+    on_attach = on_attach,
 }
 vim.lsp.enable({
     'clangd',
