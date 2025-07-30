@@ -2,6 +2,9 @@ local on_attach = function(client, bufnr)
     local opts = { buffer = bufnr, noremap = true, silent = true }
 
     vim.keymap.set('n', 'gd', vim.lsp.buf.definition, opts)
+    vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, opts)
+    vim.keymap.set('n', 'gr', vim.lsp.buf.references, opts)
+    vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, opts)
     vim.keymap.set('n', 'K', vim.lsp.buf.hover, opts)
     vim.keymap.set('n', '<leader>rn', vim.lsp.buf.rename, opts)
     vim.keymap.set('n', '<leader>ca', vim.lsp.buf.code_action, opts)
@@ -31,12 +34,14 @@ vim.lsp.config('elixirls', {
   cmd = { '/Users/tim/.local/share/nvim/mason/packages/elixir-ls/language_server.sh' },
   filetypes = { 'elixir', 'eelixir', 'heex', 'surface' },
   root_markers = { 'mix.exs', '.git' },
+  capabilities = vim.lsp.protocol.make_client_capabilities(),
   settings = {
     elixirLS = {
       dialyzerEnabled = false,
       fetchDeps = true,
       enableTestLenses = true,
       suggestSpecs = true,
+      signatureAfterComplete = false,
     }
   },
   on_attach = on_attach,
