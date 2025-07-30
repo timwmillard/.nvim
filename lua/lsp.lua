@@ -24,6 +24,31 @@ end
 -- https://neovim.io/doc/user/options.html#'completeopt'
 vim.opt.completeopt = {'menuone', 'noselect', 'popup', 'fuzzy'}
 
+vim.api.nvim_create_autocmd('LspAttach', {
+    callback = function(ev)
+        local client = vim.lsp.get_client_by_id(ev.data.client_id)
+        if client ~= nil and client:supports_method('textDocument/completion') then
+            vim.lsp.completion.enable(true, client.id, ev.buf,
+                {
+                    autotrigger = true,
+                    convert = function(item)
+                        return { abbr = item.label:gsub("%b()", "") }
+                    end,
+                }
+            )
+        end
+
+        vim.keymap.set("i", "<C-space>", vim.lsp.completion.get,
+            { desc = "trigger autocompletion" }
+        )
+        on_attach(client, ev.buf)
+
+        -- vim.keymap.set('n', 'gd', vim.lsp.buf.definition,
+        --     { noremap=true, silent=true, buffer=ev.buf }
+        -- )
+    end
+})
+
 
 vim.api.nvim_set_hl(0, '@lsp.type.comment.cpp', {})
 vim.api.nvim_set_hl(0, '@lsp.type.comment.c', {})
@@ -44,7 +69,7 @@ vim.lsp.config('elixirls', {
       signatureAfterComplete = false,
     }
   },
-  on_attach = on_attach,
+  -- on_attach = on_attach,
 })
 
 vim.lsp.config.clangd = {
