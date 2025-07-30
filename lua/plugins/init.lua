@@ -37,11 +37,11 @@ return {
     -- {
     --     "AndrewRadev/linediff.vim"
     -- },
-    -- {
-    --     "nvzone/minty",
-    --     dependencies = { "nvzone/volt", lazy = true },
-    --     cmd = { "Shades", "Huefy" },
-    -- },
+    {
+        "nvzone/minty",
+        dependencies = { "nvzone/volt", lazy = true },
+        cmd = { "Shades", "Huefy" },
+    },
     -- {
     --     "nvzone/showkeys",
     --     cmd = "ShowkeysToggle",
