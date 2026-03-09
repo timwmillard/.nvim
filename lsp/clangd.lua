@@ -11,7 +11,7 @@ return {
         '--fallback-style=none',
         '--function-arg-placeholders=false',
     },
-    filetypes = { 'c', 'cpp' },
+    filetypes = { 'c', 'cpp', 'h' },
     root_markers = {
         '.git',
         '.clangd',

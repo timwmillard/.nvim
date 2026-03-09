@@ -34,9 +34,10 @@ vim.api.nvim_create_autocmd('LspAttach', {
         )
         on_attach(client, ev.buf)
 
-        -- vim.keymap.set('n', 'gd', vim.lsp.buf.definition,
-        --     { noremap=true, silent=true, buffer=ev.buf }
-        -- )
+        vim.lsp.inlay_hint.enable(false, { bufnr = ev.buf })
+        if client then
+            client.server_capabilities.inlayHintProvider = nil
+        end
     end
 })
 
@@ -68,17 +69,6 @@ vim.lsp.config('elixir-ls', {
   -- on_attach = on_attach,
 })
 
-vim.lsp.config.clangd = {
-    cmd = {
-        'clangd',
-        '--clang-tidy',
-        '--background-index',
-        '--offset-encoding=utf-8',
-    },
-    root_markers = { '.clangd', 'compile_commands.json' },
-    filetypes = { 'c', 'cpp' },
-    on_attach = on_attach,
-}
 vim.lsp.enable({
     'clangd',
     'gopls',

@@ -32,6 +32,10 @@ vim.o.clipboard = "unnamedplus"
 
 vim.o.textwidth = 78
 
+-- should use grep -rn "<search>"
+vim.o.grepprg = "grep"
+vim.o.grepformat = "%f:%l:%c:%m,%f:%l:%m"
+
 -- exrc
 vim.o.exrc = true
 
