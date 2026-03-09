@@ -1,4 +1,5 @@
 -- Vim REST Console (VRC)
+-- :let g:vrc_show_command = 1
 return {
     'diepm/vim-rest-console',
     config = function()

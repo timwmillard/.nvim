@@ -32,6 +32,10 @@ vim.o.clipboard = "unnamedplus"
 
 vim.o.textwidth = 78
 
+-- should use grep -rn "<search>"
+vim.o.grepprg = "grep"
+vim.o.grepformat = "%f:%l:%c:%m,%f:%l:%m"
+
 -- exrc
 vim.o.exrc = true
 
@@ -45,6 +49,10 @@ vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
 vim.api.nvim_set_keymap("n", "<leader>k", "<cmd>bn<CR>", { noremap = true })
 vim.api.nvim_set_keymap("n", "<leader>j", "<cmd>bp<CR>", { noremap = true })
 vim.api.nvim_set_keymap("n", "<C-c>", "<cmd>bd<CR><cmd>bp<CR>", { noremap = true })
+
+-- quickfix navigation
+vim.keymap.set("n", "<M-C-j>", "<cmd>cnext<CR>")
+vim.keymap.set("n", "<M-C-k>", "<cmd>cprev<CR>")
 
 vim.g.c_syntax_for_h = 1
 
@@ -83,6 +91,7 @@ vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
 
 require("secrets")
+require("lsp")
 
 require("lazy_init")
 
