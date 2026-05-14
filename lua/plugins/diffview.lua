@@ -1,11 +1,29 @@
 -- Git Diff
 return {
-    'sindrets/diffview.nvim',
-    dependencies = 'nvim-lua/plenary.nvim',
+    -- 'sindrets/diffview.nvim',
+    'dlyongemallo/diffview.nvim',
+    dependencies = {
+        'nvim-lua/plenary.nvim',
+        'jesses-code-adventures/diffview-pr.nvim',
+    },
     config = function()
+        require("diffview_pr").setup({
+          -- "expanded" shows full inline comment threads.
+          -- "minimal" shows the previous collapsed one-line summary.
+          comment_style = "minimal",
+
+          -- Set to false to skip installing the default buffer-local mappings.
+          keymaps = {
+            enabled = true,
+          },
+        })
+
         local actions = require("diffview.actions")
 
         require("diffview").setup({
+            hooks = {
+                diff_buf_win_enter = require("diffview_pr").diff_buf_win_enter,
+            },
             diff_binaries = false,  -- Show diffs for binaries
             enhanced_diff_hl = false, -- See ':h diffview-config-enhanced_diff_hl'
             git_cmd = { "git" },    -- The git executable followed by default args.
@@ -92,7 +110,7 @@ return {
                 DiffviewOpen = {},
                 DiffviewFileHistory = {},
             },
-            hooks = {},               -- See ':h diffview-config-hooks'
+            -- hooks = {},               -- See ':h diffview-config-hooks'
             keymaps = {
                 disable_defaults = false, -- Disable the default keymaps
                 view = {
