@@ -79,5 +79,12 @@ return {
         })
 
         vim.keymap.set("n", "<leader>u", "<esc>:URLOpenUnderCursor<cr>")
+
+
+        local ok, hl = pcall(require, "url-open.modules.highlight")
+        if ok then
+          local orig = hl.highlight_cursor_url
+          hl.highlight_cursor_url = function(...) pcall(orig, ...) end
+        end
     end
 }

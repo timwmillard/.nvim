@@ -4,25 +4,39 @@ return {
     'dlyongemallo/diffview.nvim',
     dependencies = {
         'nvim-lua/plenary.nvim',
-        'jesses-code-adventures/diffview-pr.nvim',
+        -- 'jesses-code-adventures/diffview-pr.nvim',
+        -- { dir = '~/dev/diffview-pr.nvim__worktrees/apply-suggestion' },
+        -- { dir = '~/dev/diffview-pr.nvim/.worktrees/diffview'},
     },
     config = function()
-        require("diffview_pr").setup({
-          -- "expanded" shows full inline comment threads.
-          -- "minimal" shows the previous collapsed one-line summary.
-          comment_style = "minimal",
 
-          -- Set to false to skip installing the default buffer-local mappings.
-          keymaps = {
-            enabled = true,
-          },
-        })
+        vim.api.nvim_create_user_command('DiffviewOpenPR', function()
+          local handle = io.popen('git rev-parse --abbrev-ref origin/HEAD 2>/dev/null')
+          local result = handle:read('*a')
+          handle:close()
+          local default_branch = result:gsub('%s+', '')
+          if default_branch == '' then
+            default_branch = 'origin/main'  -- fallback
+          end
+          vim.cmd('DiffviewOpen ' .. default_branch .. '...')
+        end, {})
+
+        -- require("diffview_pr").setup({
+        --   -- "expanded" shows full inline comment threads.
+        --   -- "minimal" shows the previous collapsed one-line summary.
+        --   comment_style = "expanded",
+        --
+        --   -- Set to false to skip installing the default buffer-local mappings.
+        --   keymaps = {
+        --     enabled = true,
+        --   },
+        -- })
 
         local actions = require("diffview.actions")
 
         require("diffview").setup({
             hooks = {
-                diff_buf_win_enter = require("diffview_pr").diff_buf_win_enter,
+                -- diff_buf_win_enter = require("diffview_pr").diff_buf_win_enter,
             },
             diff_binaries = false,  -- Show diffs for binaries
             enhanced_diff_hl = false, -- See ':h diffview-config-enhanced_diff_hl'

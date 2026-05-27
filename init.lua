@@ -90,7 +90,7 @@ vim.api.nvim_create_autocmd("FileType", {
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
 
-require("secrets")
+-- require("secrets")
 require("lsp")
 
 require("lazy_init")
