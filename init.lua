@@ -92,6 +92,7 @@ vim.g.loaded_netrwPlugin = 1
 
 -- require("secrets")
 require("lsp")
+require("treesitter")
 
 require("lazy_init")
 
