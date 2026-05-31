@@ -1,5 +1,4 @@
 {
-  "bruno.nvim": { "branch": "main", "commit": "fd266b9d6bfac57052d43246828342b07a24f132" },
   "catppuccin": { "branch": "main", "commit": "0303a7208dba448c459767486a38a6ec05c4216b" },
   "diffview.nvim": { "branch": "main", "commit": "06685829495ac5d7367a0693ef02ef0d6b97fda0" },
   "git-blame.nvim": { "branch": "master", "commit": "8503b199edf9a666fe7b1a989cf14e3c26b2eb03" },

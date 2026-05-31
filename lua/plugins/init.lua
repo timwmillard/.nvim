@@ -50,10 +50,12 @@ return {
     -- {
     --     "nvzone/typr",
     -- },
-    {
-        "jesses-code-adventures/bruno.nvim",
-        opts = {}
-    },
+    -- {
+    --     "jesses-code-adventures/bruno.nvim",
+    --     -- Uses the pre-0.12 nvim-treesitter parser API.
+    --     enabled = false,
+    --     opts = {}
+    -- },
     -- {
     --     "jesses-code-adventures/pipeline.nvim",
     --     config = function()
