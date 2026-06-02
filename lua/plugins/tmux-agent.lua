@@ -1,6 +1,8 @@
 return {
-    dir = vim.fn.expand('~/dev/tmux-agent.nvim'),
-    name = 'tmux-agent',
+    -- local dev only
+    -- name = 'tmux-agent',
+    -- dir = vim.fn.expand('~/dev/tmux-agent.nvim'),
+    'timwmillard/tmux-agent.nvim',
     lazy = false,
     config = function()
         require('tmux-agent').setup()

@@ -3,12 +3,6 @@ return {
         'ThePrimeagen/vim-be-good'
     },
     {
-        -- UUID generator
-        'uuid.nvim',
-        dir = '~/dev/uuid.nvim',
-        config = function() require('uuid') end
-    },
-    {
         -- Hex view for binary files
         'RaafatTurki/hex.nvim',
         config = function() require('hex').setup() end
