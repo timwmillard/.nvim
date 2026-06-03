@@ -1,8 +1,8 @@
 {
   "catppuccin": { "branch": "main", "commit": "0303a7208dba448c459767486a38a6ec05c4216b" },
   "diffview.nvim": { "branch": "main", "commit": "3d948ae75e2dac5b7590cfdf91dd9de1b8098f2c" },
-  "git-blame.nvim": { "branch": "main", "commit": "5c536e2d4134d064aa3f41575280bc8a2a0e03d7" },
-  "gitsigns.nvim": { "branch": "main", "commit": "dd3f588bacbeb041be6facf1742e42097f62165d" },
+  "git-blame.nvim": { "branch": "master", "commit": "8503b199edf9a666fe7b1a989cf14e3c26b2eb03" },
+  "gitsigns.nvim": { "branch": "main", "commit": "25050e4ed39e628282831d4cbecb1850454ce915" },
   "go.nvim": { "branch": "master", "commit": "5c741a26f5df77c95d42d8f48e7008aea10e5f4f" },
   "guihua.lua": { "branch": "master", "commit": "f8e06bd8a26dee3377d63c2adf1e57cdb58ac474" },
   "harpoon": { "branch": "master", "commit": "1bc17e3e42ea3c46b33c0bbad6a880792692a1b3" },
