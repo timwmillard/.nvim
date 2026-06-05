@@ -1,6 +1,6 @@
 {
   "catppuccin": { "branch": "main", "commit": "0303a7208dba448c459767486a38a6ec05c4216b" },
-  "diffview.nvim": { "branch": "main", "commit": "aaf80f2ff1538767a89e3bcf6c332d79be243ab5" },
+  "diffview.nvim": { "branch": "main", "commit": "9d29217914bf06a24bf6171e595b6cd20f791d32" },
   "git-blame.nvim": { "branch": "main", "commit": "5c536e2d4134d064aa3f41575280bc8a2a0e03d7" },
   "gitsigns.nvim": { "branch": "main", "commit": "25050e4ed39e628282831d4cbecb1850454ce915" },
   "go.nvim": { "branch": "master", "commit": "0768d79bbebdb1a112a845f9cd6293bfbd544dab" },
