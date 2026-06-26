@@ -39,7 +39,7 @@ return {
     kitty_method = "unicode-placeholders",
     processor = "magick_cli",
     integrations = {
-      markdown = { enabled = true },
+      markdown = { enabled = false },
     },
   },
 }

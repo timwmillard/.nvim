@@ -14,6 +14,7 @@ vim.o.expandtab = true
 vim.o.smartindent = true
 
 vim.o.wrap = false
+vim.opt.linebreak = true
 
 vim.o.incsearch = true
 

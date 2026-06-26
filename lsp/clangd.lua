@@ -1,4 +1,9 @@
--- install: clang install with macos
+
+-- format on save for C files
+vim.api.nvim_create_autocmd('BufWritePre', {
+  pattern = { '*.c', '*.h' },
+  callback = function() vim.lsp.buf.format({ async = false }) end,
+})
 
 ---@type vim.lsp.Config
 return {

@@ -36,7 +36,9 @@ require("lazy").setup({
     enabled = true,
     notify = false,
   },
+  -- auto-reload plugin spec on save, but without the notification popup
   change_detection = {
+    enabled = true,
     notify = false,
   },
 })
